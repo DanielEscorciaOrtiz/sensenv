@@ -1,8 +1,8 @@
 {
   "name": "sensenv",
   "version": "1.0.0",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "description": "Tool to generate env object with intellisense",
   "license": "MIT",
   "homepage": "https://github.com/DanielEscorciaOrtiz/sensenv#readme",
