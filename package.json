@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "types": "index.d.ts",
+  "description": "Tool to generate env object with intellisense",
   "license": "MIT",
   "homepage": "https://github.com/DanielEscorciaOrtiz/sensenv#readme",
   "scripts": {
@@ -24,7 +25,8 @@
   "keywords": [
     "env",
     "environment",
-    "process"
+    "process",
+    "intellisense"
   ],
   "files": [
     "lib/**/*"
