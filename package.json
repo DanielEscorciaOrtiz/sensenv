@@ -1,17 +1,25 @@
 {
   "name": "sensenv",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "description": "Tool to generate env object with intellisense",
   "license": "MIT",
   "homepage": "https://github.com/DanielEscorciaOrtiz/sensenv#readme",
   "scripts": {
-    "build": "rm -rf ./lib && tsc"
+    "prepublishOnly": "yarn build",
+    "build": "yarn b:clean && yarn b:compile && yarn b:bundle",
+    "b:clean": "rm -rf ./lib && rm -rf ./private/lib",
+    "b:compile": "tsc -p ./config",
+    "b:bundle": "rollup -c ./config/rollup.config.js && node ./config/dts.config.js"
   },
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^16.7.13",
+    "dts-minify": "^0.3.0",
+    "rollup": "^2.60.0",
+    "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.4.2"
   },
   "author": {
