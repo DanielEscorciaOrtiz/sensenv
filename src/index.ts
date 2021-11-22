@@ -1,12 +1,5 @@
 export const required = Symbol("required");
 
-interface Env {
-    NODE_ENV: "development" | "production" | "test",
-    DEVELOPMENT: boolean,
-    PRODUCTION: boolean,
-    TESTING: boolean,
-}
-
 export type EnvVarGetter = (name: string) => string | undefined;
 
 const defaultGetter: EnvVarGetter = () => undefined;
@@ -17,7 +10,7 @@ export const getEnv = function <T extends Record<string, any>>(env: T, getter = 
 
     const NODE_ENV = processEnv.NODE_ENV as "development" | "production" | "test";
 
-    const baseEnv: Env = {
+    const baseEnv = {
         NODE_ENV,
         DEVELOPMENT: NODE_ENV === "development",
         PRODUCTION: NODE_ENV === "production",
@@ -42,5 +35,5 @@ export const getEnv = function <T extends Record<string, any>>(env: T, getter = 
     return {
         ...newEnv,
         ...baseEnv,
-    } as Env & Record<keyof T, string>;
+    } as typeof baseEnv & Record<keyof T, string>;
 };
